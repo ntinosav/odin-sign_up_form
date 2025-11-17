@@ -6,3 +6,40 @@
     font-style: normal;
     font-display: swap;
 }
+
+body {
+    display: flex;
+    margin: 0;
+}
+
+img {
+    width: 40vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.image-container {
+    height: 100%;
+    margin-bottom: 0;
+    border: 0;
+    padding: 0;
+} 
+
+.form-container {
+    width: 70vw;
+}
+
+form {
+    padding: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.205);
+}
+
+fieldset{
+    display: flex;
+    justify-content: space-evenly;
+    border: 0;
+}
+
+label {
+    display: block;
+}
