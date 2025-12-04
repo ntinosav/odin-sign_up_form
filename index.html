@@ -26,12 +26,12 @@
             <fieldset>
                 <div>
                     <label for="fname">FIRST NAME</label>
-                    <input type="text" name="fname" id="fname" placeholder="John" pattern="[A-Z][a-z]*">
+                    <input type="text" name="fname" id="fname" placeholder="John" pattern="[A-Z][a-z]*" required>
                 </div>
  
                 <div>
                     <label for="lname">LAST NAME</label>
-                    <input type="text" name="lname" id="lname" placeholder="Smith">
+                    <input type="text" name="lname" id="lname" placeholder="Smith" required>
                 </div>
                 
             </fieldset>
@@ -39,36 +39,70 @@
             <fieldset>
                 <div>
                     <label for="mail">EMAIL</label>
-                    <input type="email" name="mail" id="mail" placeholder="someone@dontcare.com">
+                    <input type="email" name="mail" id="mail" placeholder="someone@dontcare.com" required>
                 </div>
 
                 <div>
                     <label for="phone">PHONE NUMBER</label>
-                    <input type="tel" name ="phone" id="phone" placeholder="6969696969">
+                    <input type="tel" name ="phone" id="phone" placeholder="6969696969" required>
                 </div>
 
             </fieldset>
 
 
-            <fieldset>
+            <fieldset id="pfield">
                 <div>
                     <label for="pword">PASSWORD</label>
-                    <input type="password" name="pword" id="pword">
+                    <input type="password" name="pword" id="pword" required>
                 </div>
                 
                 <div>
                     <label for="pword_c">CONFIRM PASSWORD</label>
-                    <input type="password" name="pword_c" id="pword_c">
+                    <input type="password" name="pword_c" id="pword_c" required>
                 </div>
                     
             </fieldset>
 
             <div class="separator"> </div>
             <br><br>
-            <button>Create Account</button>
+            <button id="sbutton">Create Account</button>
         </form>
         <p>Already have an account? <a href="">Log In</a></p>
     </div>
+
+
+    <script>
+        const sub_button = document.getElementById("sbutton");
+        let dont_match = false;
+        const pass = document.getElementById("pword");
+        const c_pass = document.getElementById("pword_c")
+
+        const passfield = document.getElementById("pfield");
+
+        sub_button.addEventListener("click", ()=> {
+            console.log("Fine");
+            console.log(pass.value);
+            console.log(c_pass.value);
+            if (pass.value != c_pass.value) {
+                if (!dont_match){
+                    dont_match = true;
+                const err = document.createElement("div");
+                err.classList.add("match");
+                err.innerText = "Passwords do not match";
+                passfield.appendChild(err);
+                }
+
+            }else {
+                if(dont_match){
+                    console.log("They match!");
+                    dont_match = false;
+                    passfield.removeChild(passfield.lastChild);
+                }
+
+            }       
+        })
+    </script>
+
 
 </body>
 </html>

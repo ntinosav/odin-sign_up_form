@@ -43,7 +43,7 @@ img {
     top : 200px;
     width:inherit;
     height: 100px;
-    font-size: 100px;
+    font-size: 6.25em;
     color: white;
 
     padding-top: 20px;
@@ -94,6 +94,7 @@ form {
     border-bottom: 2px solid rgba(15, 15, 15, 0.082);
     margin-left: -50px;
     margin-right: -50px;
+    padding-bottom: 80px;
     width: 70vw;
 }
 
@@ -129,11 +130,23 @@ input {
     font-size: large;
 }
 
-input[type="password"]:invalid {
-    border: red;
-}
 
 input:focus {
-    /* background-color: rgba(129, 129, 182, 0.548); */
-    border: 3px solid rgb(61, 131, 179);
+    background-color: rgba(40, 156, 177, 0.753);
+}
+
+
+input:valid {
+    background-color: #87c55044;
+}
+
+input[type="password"]:invalid {
+    border-color: red;
+}
+
+.match {
+    position: relative;
+    top: 20px;
+    color: red;
+    height: fit-content;
 }
