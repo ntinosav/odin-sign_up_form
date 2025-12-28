@@ -21,7 +21,7 @@
         <h1>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</h1>
 
     
-        <form action="">
+        <form id="sign-up-form" action="">
             <h1>Let's do this!</h1>
             <fieldset>
                 <div>
@@ -44,7 +44,7 @@
 
                 <div>
                     <label for="phone">PHONE NUMBER</label>
-                    <input type="tel" name ="phone" id="phone" placeholder="6969696969" required>
+                    <input type="tel" name ="phone" id="phone" placeholder="6969696969" pattern="[0-9]{10}" required>
                 </div>
 
             </fieldset>
@@ -53,12 +53,12 @@
             <fieldset id="pfield">
                 <div>
                     <label for="pword">PASSWORD</label>
-                    <input type="password" name="pword" id="pword" required>
+                    <input type="password" name="pword" id="pword" placeholder="myPassword" required>
                 </div>
                 
                 <div>
                     <label for="pword_c">CONFIRM PASSWORD</label>
-                    <input type="password" name="pword_c" id="pword_c" required>
+                    <input type="password" name="pword_c" id="pword_c" placeholder="myPassword" required>
                 </div>
                     
             </fieldset>
@@ -113,6 +113,17 @@
         }
 
         
+        const myForm = document.getElementById("sign-up-form");
+
+        myForm.addEventListener("submit", () => {
+            if (c_pass.value != pass.value){
+                event.preventDefault();
+                alert("Make sure the passwords match.")
+            }
+        })
+
+
+
     </script>
 
 
