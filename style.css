@@ -140,8 +140,13 @@ input:valid {
     background-color: #87c55044;
 }
 
-input[type="password"]:invalid {
+
+input:invalid {
     border-color: red;
+}
+
+input:placeholder-shown {
+    border-color:  #E5E7EB;
 }
 
 .match {
