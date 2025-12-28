@@ -79,28 +79,40 @@
 
         const passfield = document.getElementById("pfield");
 
-        sub_button.addEventListener("click", ()=> {
-            console.log("Fine");
-            console.log(pass.value);
-            console.log(c_pass.value);
-            if (pass.value != c_pass.value) {
-                if (!dont_match){
-                    dont_match = true;
-                const err = document.createElement("div");
-                err.classList.add("match");
-                err.innerText = "Passwords do not match";
-                passfield.appendChild(err);
-                }
+        pass.addEventListener("focusout", same_password);
+        c_pass.addEventListener("focusout", same_password);
 
+
+
+        function same_password(){
+            if (pass.value != c_pass.value) {
+                dont_match = true;
+                if (pass.value != "" && c_pass.value != "") {
+                    const err = document.createElement("div");
+                    err.classList.add("match");
+                    err.innerText = "Passwords do not match";
+                    passfield.appendChild(err);
+                    pass.style.backgroundColor = "pink";
+                    c_pass.style.backgroundColor = "pink";
+                }
             }else {
-                if(dont_match){
-                    console.log("They match!");
+                if(dont_match && pass.value != "" && c_pass.value != ""){
+                    console.log("They match!" + pass.value + c_pass.value);
                     dont_match = false;
                     passfield.removeChild(passfield.lastChild);
+                    pass.style.backgroundColor = "#87c55044";
+                    c_pass.style.backgroundColor = "#87c55044";
                 }
+            }
+            if (pass.value == "" || c_pass.value == ""){
+                console.log(pass.value);
+                console.log(c_pass.value);
+                pass.style.backgroundColor = "white";
+                c_pass.style.backgroundColor = "white";
+            }
+        }
 
-            }       
-        })
+        
     </script>
 
 
